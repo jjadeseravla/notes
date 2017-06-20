@@ -18,4 +18,11 @@ function testPutsNoteInArray(){
   assert.isEq(notelist.array[0].text, "new note");
 }
 
-testPutsNoteInArray();
+// testPutsNoteInArray();
+
+function testListReturnsHTML(){
+  notelist.addNote("I hate bowling");
+  assert.isTrue(notelist.doHTML() === "<ul><li><div>I hate bowling</div></li></ul>");
+}
+
+testListReturnsHTML();
