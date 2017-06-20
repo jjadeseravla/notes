@@ -1,5 +1,5 @@
 function testNoteHasText(){
-  note = new Note("not naughty");
+  note.text1("not naughty");
   assert.isEq(note.text, "not naughty");
 }
 
