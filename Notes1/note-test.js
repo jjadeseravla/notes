@@ -4,3 +4,10 @@ function testNoteHasText(){
 }
 
 testNoteHasText();
+
+function testListHasArray(){
+  noteList = new NoteList();
+  assert.isEq(noteList.array.length, 0);
+}
+
+testListHasArray();
