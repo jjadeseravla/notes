@@ -11,3 +11,11 @@ function testListHasArray(){
 }
 
 testListHasArray();
+
+
+function testPutsNoteInArray(){
+  notelist.addNote("new note");
+  assert.isEq(notelist.array[0].text, "new note");
+}
+
+testPutsNoteInArray();

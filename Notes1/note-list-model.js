@@ -4,9 +4,16 @@ var notelist = (function(){
 
   return {
 
-    list: function NoteList() {
+    list: function() {
       this.array = []
+    },
+
+    addNote: function(string) {
+      note.text1(string);
+      notelist.array.push(note)
+
     }
+
   };
 
 }());
