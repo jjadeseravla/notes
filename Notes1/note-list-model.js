@@ -15,9 +15,11 @@ var notelist = (function(){
     },
 
     doHTML: function() {
+      var result;
       notelist.array.forEach(function(note) {
-        console.log("<ul><li><div>" + note.text + "</div></li></ul>");
+        result = "<ul><li><div>" + note.text + "</div></li></ul>";
       })
+      return result;
     },
   };
 

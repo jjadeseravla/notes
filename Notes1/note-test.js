@@ -22,7 +22,8 @@ function testPutsNoteInArray(){
 
 function testListReturnsHTML(){
   notelist.addNote("I hate bowling");
-  assert.isTrue(notelist.doHTML() === "<ul><li><div>I hate bowling</div></li></ul>");
+  console.log(notelist)
+  assert.isEq(notelist.doHTML(), "<ul><li><div>I hate bowling</div></li></ul>");
 }
 
 testListReturnsHTML();
