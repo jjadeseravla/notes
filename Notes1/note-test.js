@@ -1,12 +1,12 @@
 function testNoteHasText(){
-  note.text1("not naughty");
-  assert.isEq(note.text, "not naughty");
+  note = new Note("I hate bowling");
+  assert.isEq(note.text, "I hate bowling")
 }
 
 testNoteHasText();
 
 function testListHasArray(){
-  notelist.list();
+  notelist = new Notelist;
   assert.isEq(notelist.array.length, 0);
 }
 
@@ -18,11 +18,10 @@ function testPutsNoteInArray(){
   assert.isEq(notelist.array[0].text, "new note");
 }
 
-// testPutsNoteInArray();
+testPutsNoteInArray();
 
 function testListReturnsHTML(){
   notelist.addNote("I hate bowling");
-  console.log(notelist)
   assert.isEq(notelist.doHTML(), "<ul><li><div>I hate bowling</div></li></ul>");
 }
 

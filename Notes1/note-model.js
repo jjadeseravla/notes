@@ -1,12 +1,9 @@
-var note = (function(){
+(function(exports) {
 
-  'use strict';
+  function Note(text) {
+    this.text = text;
+  }
 
-    return {
+exports.Note = Note;
 
-      text1: function Note(text) {
-        this.text = text
-      }
-    };
-
-}());
+})(this);
