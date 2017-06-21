@@ -11,7 +11,7 @@
 
   Notelist.prototype.doHTML = function () {
     var result;
-    notelist.array.forEach(function(note) {
+    this.array.forEach(function(note) {
       result = "<ul><li><div>" + note.text + "</div></li></ul>";
     })
     return result;
