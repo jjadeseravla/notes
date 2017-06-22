@@ -4,6 +4,10 @@
     this.text = text;
   }
 
+Note.prototype.returnsText = function () {
+  return this.text
+};
+
 exports.Note = Note;
 
 })(this);
