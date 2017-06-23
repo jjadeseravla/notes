@@ -1,34 +1,27 @@
 (function(exports) {
 
   function News() {
-    this.story = []
-    this.articleURL = "http://news-summary-api.herokuapp.com/guardian?apiRequestUrl=http://content.guardianapis.com/politics/blog/2014/feb/17/alex-salmond-speech-first-minister-scottish-independence-eu-currency-live?show-fields=body";
-  }
+    this.story = [];
+    this.articleURL = "https://content.guardianapis.com/search?api-key=aa5fcbdd-e138-43c2-9986-9411a060dc47";
+
+  };
 
   News.prototype.getStory = function () {
+    div = document.getElementById("header");
     var request =  new XMLHttpRequest();
     request.open('GET', this.articleURL, false);
     request.send();
-    console.log(request);
-    // var story = this.story
-    // request.onload = function() {
-    //   if (request.status >= 200 && request.status < 400) {
-    //     var data = JSON.parse(request.responseText);
-    //     story.push(data.response.content.webTitle);
-    //     console.log(story);
-    //   } else {
-    //     console.log("MASSIVE ERROR")
-      // }
+
+      if (request.status >= 200 && request.status < 400) {
+        var data = JSON.parse(request.responseText);
+        var listOfArticles = data.response.results;
+        for(var i = 0; i < listOfArticles.length; i++) {
+          this.story.push(listOfArticles[i].webTitle)
+        }
+        div.innerHTML = this.story;
     }
 
-    request.onerror = function() {
-      console.log("oh nooooo")
-    };
-
-  request.send();
-
-  // };
-
+  };
   // News.prototype.assignStory = function () {
   //   console.log(this.getStory());
   //   // console.log(this.story)
