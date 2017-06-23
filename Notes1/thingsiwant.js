@@ -7,7 +7,6 @@
   };
 
   News.prototype.getStory = function () {
-    div = document.getElementById("header");
     var request =  new XMLHttpRequest();
     request.open('GET', this.articleURL, false);
     request.send();
@@ -16,17 +15,21 @@
         var data = JSON.parse(request.responseText);
         var listOfArticles = data.response.results;
         for(var i = 0; i < listOfArticles.length; i++) {
-          this.story.push(listOfArticles[i].webTitle)
+          this.story.push(listOfArticles[i].webTitle);
         }
-        div.innerHTML = this.story;
-    }
+      }
+    };
+    News.prototype.listHeadlines = function () {
+      div = document.getElementById("header");
+      var list = "<ul>";
+      for(var i = 0; i < this.story.length; i++) {
+        list += ("<li><div>" + this.story[i] + "</div></li>")
+      }
+      list += "</ul>";
+      console.log(list);
+      div.innerHTML = list;
+    };
 
-  };
-  // News.prototype.assignStory = function () {
-  //   console.log(this.getStory());
-  //   // console.log(this.story)
-  // };
 
 exports.News = News;
-
 })(this);
