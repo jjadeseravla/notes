@@ -7,17 +7,19 @@
 
   News.prototype.getStory = function () {
     var request =  new XMLHttpRequest();
-    request.open('GET', this.articleURL, true);
-    var story = this.story
-    request.onload = function() {
-      if (request.status >= 200 && request.status < 400) {
-        var data = JSON.parse(request.responseText);
-        story.push(data.response.content.webTitle);
-        console.log(story);
-      } else {
-        console.log("MASSIVE ERROR")
-      }
-    };
+    request.open('GET', this.articleURL, false);
+    request.send();
+    console.log(request);
+    // var story = this.story
+    // request.onload = function() {
+    //   if (request.status >= 200 && request.status < 400) {
+    //     var data = JSON.parse(request.responseText);
+    //     story.push(data.response.content.webTitle);
+    //     console.log(story);
+    //   } else {
+    //     console.log("MASSIVE ERROR")
+      // }
+    }
 
     request.onerror = function() {
       console.log("oh nooooo")
@@ -25,7 +27,7 @@
 
   request.send();
 
-  };
+  // };
 
   // News.prototype.assignStory = function () {
   //   console.log(this.getStory());
